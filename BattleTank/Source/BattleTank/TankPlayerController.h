@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Tank.h"
 #include "GameFramework/PlayerController.h"
+#include "Engine/World.h"
 #include "TankPlayerController.generated.h"
 
 /**
@@ -27,6 +28,11 @@ private:
 		float CrossHairXLocation = 0.5;
 	UPROPERTY(EditAnywhere)
 		float CrossHairYLocation = 0.33333;
+	UPROPERTY(EditAnywhere)
+		float LineTraceRange = 500000; // 10km
 
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
+	bool GetCrossHairProjection(FVector2D& ScreenLocation) const;
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 };
