@@ -6,6 +6,9 @@
 
 void UTankTrack::SetThrottle(float Throttle)
 {
+	// auto WorldTime = GetWorld()->GetTimeSeconds();
+	UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throttle);
+
 	// TODO Clamp throttle value so player can't over-drive
 	auto ForceApplied = GetForwardVector() * Throttle * TrackMaxDrivingForce;
 	auto ForceLocation = GetComponentLocation();
