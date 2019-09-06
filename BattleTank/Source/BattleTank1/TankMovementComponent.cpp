@@ -30,9 +30,6 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 		return;
 	}
 
-	// auto WorldTime = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
-
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
 
@@ -41,5 +38,10 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 
 void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed)
 {
-	UE_LOG(LogTemp, Warning, TEXT("%s: %s"), *GetOwner()->GetName(), *MoveVelocity.ToString());
+	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
+	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
+
+	auto RequiredThrow = FVector::DotProduct(TankForward, AIForwardIntention);
+
+	IntendMoveForward(RequiredThrow);
 }
