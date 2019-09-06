@@ -20,5 +20,8 @@ class BATTLETANK_API ATankAIController : public AAIController
 public:
 	void BeginPlay() override;
 	void Tick(float DeltaTime) override;
+
+private:
+	float AcceptanceRadius = 3000; // How close can the AI get
 	
 };
