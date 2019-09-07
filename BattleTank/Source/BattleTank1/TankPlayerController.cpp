@@ -2,6 +2,7 @@
 
 
 #include "TankPlayerController.h"
+#include "TankAimingComponent.h"
 #include "Tank.h"
 
 void ATankPlayerController::Tick(float DeltaTime)
@@ -16,6 +17,16 @@ void ATankPlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	ATank* Player = GetControlledTank();
+	auto AimingComponent = Player->FindComponentByClass<UTankAimingComponent>();
+
+	if (AimingComponent)
+	{
+		FoundAimingComponent(AimingComponent);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Player controller can't find aiming component"))
+	}
 }
 
 ATank* ATankPlayerController::GetControlledTank() const
