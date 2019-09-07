@@ -52,18 +52,12 @@ void UTankAimingComponent::AimAt(FVector WorldSpaceAim, float LaunchSpeed)
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 
 		MoveBarrel(AimDirection);
-	}
-	else
-	{
-
-	}
-
-	
+	}	
 }
 
 void UTankAimingComponent::MoveBarrel(FVector AimDirection)
 {
-	// Work out diff between current rotation and direction
+	// Work out difference between current rotation and direction
 	auto Rotator = Barrel->GetForwardVector().Rotation();
 	auto AimRotator = AimDirection.Rotation();
 	auto DeltaRotator = AimRotator - Rotator;
