@@ -53,6 +53,8 @@ private:
 		TSubclassOf<AProjectile> ProjectileBlueprint;
 
 	double LastFireTime = 0;
+	FVector AimDirection;
 
 	void MoveBarrel(FVector AimDirection);
+	bool IsBarrelMoving();
 };
