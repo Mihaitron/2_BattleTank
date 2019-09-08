@@ -19,7 +19,7 @@ void ATankPlayerController::BeginPlay()
 	ATank* Player = GetControlledTank();
 	auto AimingComponent = Player->FindComponentByClass<UTankAimingComponent>();
 
-	if (AimingComponent)
+	if (ensure(AimingComponent))
 	{
 		FoundAimingComponent(AimingComponent);
 	}
@@ -36,7 +36,7 @@ ATank* ATankPlayerController::GetControlledTank() const
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
-	if (!GetControlledTank())
+	if (!ensure(GetControlledTank()))
 	{
 		return;
 	}
