@@ -25,7 +25,7 @@ public:
 
 protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
-	void FoundAimingComponent(UTankAimingComponent* AimingComponentReference);
+		void FoundAimingComponent(UTankAimingComponent* AimingComponentReference);
 
 private:
 	UPROPERTY(EditDefaultsOnly)
