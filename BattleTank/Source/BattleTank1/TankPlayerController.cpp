@@ -27,6 +27,10 @@ void ATankPlayerController::BeginPlay()
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
+	if (!GetPawn())
+	{
+		return;
+	}
 	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 
 	if (!ensure(AimingComponent))
@@ -95,7 +99,7 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 	else
 	{
 		HitLocation = FVector(0.0f);
-
+		
 		return false;
 	}
 }

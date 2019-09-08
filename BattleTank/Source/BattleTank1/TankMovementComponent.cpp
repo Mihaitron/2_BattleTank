@@ -14,10 +14,9 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 {
 	if (!ensure(LeftTrack && RightTrack))
 	{
+		UE_LOG(LogTemp, Error, TEXT("D E A D"))
 		return;
 	}
-
-	Throw = FMath::Clamp(Throw, -1.0f, +1.0f);
 
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
@@ -29,8 +28,6 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 	{
 		return;
 	}
-
-	FMath::Clamp(Throw, -1.0f, +1.0f);
 
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
