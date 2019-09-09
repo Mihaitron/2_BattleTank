@@ -33,6 +33,8 @@ void ATankAIController::Tick(float DeltaTime)
 	MoveToActor(Player, AcceptanceRadius); // TODO check radius in cm
 	// Aim at the player
 	AimingComponent->AimAt(Player->GetActorLocation());
-	// Fire if ready
-	AimingComponent->Fire();
+	if (AimingComponent->GetFiringStatus() == EFiringStatus::Locked)
+	{
+		AimingComponent->Fire();
+	}
 }

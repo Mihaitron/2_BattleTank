@@ -30,6 +30,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Mechanics)
 		void Fire();
 	void AimAt(FVector WorldSpaceAim);
+	EFiringStatus GetFiringStatus() const;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")

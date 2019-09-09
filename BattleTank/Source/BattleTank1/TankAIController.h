@@ -11,7 +11,6 @@ class UTankAimingComponent;
 /**
  * 
  */
-UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
@@ -21,6 +20,6 @@ public:
 	void Tick(float DeltaTime) override;
 
 private:
-	float AcceptanceRadius = 300; // How close can the AI get
+	float AcceptanceRadius = 3000; // How close can the AI get
 	
 };

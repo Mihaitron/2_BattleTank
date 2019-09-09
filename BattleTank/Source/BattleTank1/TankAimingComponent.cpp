@@ -74,6 +74,11 @@ void UTankAimingComponent::AimAt(FVector WorldSpaceAim)
 	}	
 }
 
+EFiringStatus UTankAimingComponent::GetFiringStatus() const
+{
+	return FiringState;
+}
+
 void UTankAimingComponent::MoveBarrel(FVector AimDirection)
 {
 	if (!ensure(Barrel && Turret))
